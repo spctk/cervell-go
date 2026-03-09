@@ -4,11 +4,13 @@ import (
 	"context"
 )
 
+type dimensionOutput struct {
+	Dimension int `json:"dimension"`
+}
+
 // GetWordEmbeddingDim ...
 func (cl *Client) GetWordEmbeddingDim(ctx context.Context) (int, error) {
-	x, err := getCall[struct {
-		Dimension int `json:"dimension"`
-	}](ctx, cl, "/embedding/word/dimension")
+	x, err := getCall[dimensionOutput](ctx, cl, "/embedding/word/dimension")
 	if err != nil {
 		return 0, err
 	}
@@ -17,9 +19,7 @@ func (cl *Client) GetWordEmbeddingDim(ctx context.Context) (int, error) {
 
 // GetSentenceEmbeddingDim ...
 func (cl *Client) GetSentenceEmbeddingDim(ctx context.Context) (int, error) {
-	x, err := getCall[struct {
-		Dimension int `json:"dimension"`
-	}](ctx, cl, "/embedding/sentence/dimension")
+	x, err := getCall[dimensionOutput](ctx, cl, "/embedding/sentence/dimension")
 	if err != nil {
 		return 0, err
 	}
