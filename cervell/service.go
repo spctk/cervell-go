@@ -1,3 +1,5 @@
+// AAA is a...
+
 package cervell
 
 const (
