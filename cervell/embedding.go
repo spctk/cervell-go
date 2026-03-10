@@ -25,3 +25,29 @@ func (cl *Client) GetSentenceEmbeddingDim(ctx context.Context) (int, error) {
 	}
 	return r.Dimension, nil
 }
+
+// GetWordVector ...
+func (cl *Client) GetWordVector(ctx context.Context, word string) ([]float64, error) {
+	r, err := postCall[[]float64](ctx, cl, "/embedding/word", &struct {
+		Word string `json:"word"`
+	}{
+		Word: word,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return *r, nil
+}
+
+// GetSentenceVector ...
+func (cl *Client) GetSentenceVector(ctx context.Context, sentence string) ([]float64, error) {
+	r, err := postCall[[]float64](ctx, cl, "/embedding/sentence", &struct {
+		Sentence string `json:"sentence"`
+	}{
+		Sentence: sentence,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return *r, nil
+}
