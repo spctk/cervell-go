@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>cervell - Go Documentation Server</title>
+
+<link type="text/css" rel="stylesheet" href="style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="/lib/godoc/jquery.js" defer></script>
+
+
+
+<script>var goVersion = "go1.22.0";</script>
+<script src="/lib/godoc/godocs.js" defer></script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="/pkg/">Go Documentation Server</a></div>
+<div class="top-heading" id="heading-narrow"><a href="/pkg/">GoDoc</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+<form method="GET" action="/search">
+<div id="menu">
+
+<span class="search-box"><input type="search" id="search" name="q" placeholder="Search" aria-label="Search" required><button type="submit"><span><!-- magnifying glass: --><svg width="24" height="24" viewBox="0 0 24 24"><title>submit search</title><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/><path d="M0 0h24v24H0z" fill="none"/></svg></span></button></span>
+</div>
+</form>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package cervell
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "github.com/spctk/cervell-go/cervell"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				<p>Package cervell provides an API to a number of AI functions.
+
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+			
+			
+				
+				<dd><a href="#Client">type Client</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Client.FindDocuments">func (cl *Client) FindDocuments(ctx context.Context, group, text string, limit int) ([]*Document, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Client.GeocodeAddress">func (cl *Client) GeocodeAddress(ctx context.Context, address string) ([]*Placemark, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Client.GeocodeReverse">func (cl *Client) GeocodeReverse(ctx context.Context, latitude, longitude float64) ([]*Placemark, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Client.GetSentenceEmbeddingDim">func (cl *Client) GetSentenceEmbeddingDim(ctx context.Context) (int, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Client.GetSentenceVector">func (cl *Client) GetSentenceVector(ctx context.Context, sentence string) ([]float64, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Client.GetWordEmbeddingDim">func (cl *Client) GetWordEmbeddingDim(ctx context.Context) (int, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Client.GetWordVector">func (cl *Client) GetWordVector(ctx context.Context, word string) ([]float64, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Client.InsertDocument">func (cl *Client) InsertDocument(ctx context.Context, doc *Document) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Client.LLMPrompt">func (cl *Client) LLMPrompt(ctx context.Context, prompt string, tools []*LLMTool) (*LLMResponse, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Client.UpdateDocument">func (cl *Client) UpdateDocument(ctx context.Context, doc *Document) error</a></dd>
+				
+			
+				
+				<dd><a href="#Document">type Document</a></dd>
+				
+				
+			
+				
+				<dd><a href="#LLMResponse">type LLMResponse</a></dd>
+				
+				
+			
+				
+				<dd><a href="#LLMTool">type LLMTool</a></dd>
+				
+				
+			
+				
+				<dd><a href="#Placemark">type Placemark</a></dd>
+				
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="/src/github.com/spctk/cervell-go/cervell/client.go">client.go</a>
+			
+				<a href="/src/github.com/spctk/cervell-go/cervell/embedding.go">embedding.go</a>
+			
+				<a href="/src/github.com/spctk/cervell-go/cervell/geocoding.go">geocoding.go</a>
+			
+				<a href="/src/github.com/spctk/cervell-go/cervell/llm.go">llm.go</a>
+			
+				<a href="/src/github.com/spctk/cervell-go/cervell/rag.go">rag.go</a>
+			
+				<a href="/src/github.com/spctk/cervell-go/cervell/service.go">service.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+		
+		
+		
+			
+			
+			<h2 id="Client">type <a href="/src/github.com/spctk/cervell-go/cervell/client.go?s=144:209#L2">Client</a>
+				<a class="permalink" href="#Client">&#xb6;</a>
+				
+				
+			</h2>
+			<p>Client is a client to the API encapsulating an API key.
+
+			<pre>type Client struct {
+<span id="Client.APIKey"></span>    APIKey <a href="/pkg/builtin/#string">string</a>
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="Client.FindDocuments">func (*Client) <a href="/src/github.com/spctk/cervell-go/cervell/rag.go?s=702:806#L18">FindDocuments</a>
+					<a class="permalink" href="#Client.FindDocuments">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (cl *<a href="#Client">Client</a>) FindDocuments(ctx <a href="/pkg/context/">context</a>.<a href="/pkg/context/#Context">Context</a>, group, text <a href="/pkg/builtin/#string">string</a>, limit <a href="/pkg/builtin/#int">int</a>) ([]*<a href="#Document">Document</a>, <a href="/pkg/builtin/#error">error</a>)</pre>
+				<p>FindDocuments finds similar documents in the database.
+
+				
+				
+				
+			
+				
+				<h3 id="Client.GeocodeAddress">func (*Client) <a href="/src/github.com/spctk/cervell-go/cervell/geocoding.go?s=515:606#L9">GeocodeAddress</a>
+					<a class="permalink" href="#Client.GeocodeAddress">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (cl *<a href="#Client">Client</a>) GeocodeAddress(ctx <a href="/pkg/context/">context</a>.<a href="/pkg/context/#Context">Context</a>, address <a href="/pkg/builtin/#string">string</a>) ([]*<a href="#Placemark">Placemark</a>, <a href="/pkg/builtin/#error">error</a>)</pre>
+				<p>GeocodeAddress returns a list of placemarks for the provided address.
+
+				
+				
+				
+			
+				
+				<h3 id="Client.GeocodeReverse">func (*Client) <a href="/src/github.com/spctk/cervell-go/cervell/geocoding.go?s=891:995#L22">GeocodeReverse</a>
+					<a class="permalink" href="#Client.GeocodeReverse">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (cl *<a href="#Client">Client</a>) GeocodeReverse(ctx <a href="/pkg/context/">context</a>.<a href="/pkg/context/#Context">Context</a>, latitude, longitude <a href="/pkg/builtin/#float64">float64</a>) ([]*<a href="#Placemark">Placemark</a>, <a href="/pkg/builtin/#error">error</a>)</pre>
+				<p>GeocodeReverse returns a list of placemarks for the provided latitude and longitude.
+
+				
+				
+				
+			
+				
+				<h3 id="Client.GetSentenceEmbeddingDim">func (*Client) <a href="/src/github.com/spctk/cervell-go/cervell/embedding.go?s=479:554#L11">GetSentenceEmbeddingDim</a>
+					<a class="permalink" href="#Client.GetSentenceEmbeddingDim">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (cl *<a href="#Client">Client</a>) GetSentenceEmbeddingDim(ctx <a href="/pkg/context/">context</a>.<a href="/pkg/context/#Context">Context</a>) (<a href="/pkg/builtin/#int">int</a>, <a href="/pkg/builtin/#error">error</a>)</pre>
+				<p>GetSentenceEmbeddingDim returns the vector dimension for the sentence embedding.
+
+				
+				
+				
+			
+				
+				<h3 id="Client.GetSentenceVector">func (*Client) <a href="/src/github.com/spctk/cervell-go/cervell/embedding.go?s=1086:1178#L33">GetSentenceVector</a>
+					<a class="permalink" href="#Client.GetSentenceVector">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (cl *<a href="#Client">Client</a>) GetSentenceVector(ctx <a href="/pkg/context/">context</a>.<a href="/pkg/context/#Context">Context</a>, sentence <a href="/pkg/builtin/#string">string</a>) ([]<a href="/pkg/builtin/#float64">float64</a>, <a href="/pkg/builtin/#error">error</a>)</pre>
+				<p>GetSentenceVector returns the vector of the provided sentence.
+
+				
+				
+				
+			
+				
+				<h3 id="Client.GetWordEmbeddingDim">func (*Client) <a href="/src/github.com/spctk/cervell-go/cervell/embedding.go?s=183:254#L2">GetWordEmbeddingDim</a>
+					<a class="permalink" href="#Client.GetWordEmbeddingDim">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (cl *<a href="#Client">Client</a>) GetWordEmbeddingDim(ctx <a href="/pkg/context/">context</a>.<a href="/pkg/context/#Context">Context</a>) (<a href="/pkg/builtin/#int">int</a>, <a href="/pkg/builtin/#error">error</a>)</pre>
+				<p>GetWordEmbeddingDim returns the vector dimension for the word embedding.
+
+				
+				
+				
+			
+				
+				<h3 id="Client.GetWordVector">func (*Client) <a href="/src/github.com/spctk/cervell-go/cervell/embedding.go?s=757:841#L20">GetWordVector</a>
+					<a class="permalink" href="#Client.GetWordVector">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (cl *<a href="#Client">Client</a>) GetWordVector(ctx <a href="/pkg/context/">context</a>.<a href="/pkg/context/#Context">Context</a>, word <a href="/pkg/builtin/#string">string</a>) ([]<a href="/pkg/builtin/#float64">float64</a>, <a href="/pkg/builtin/#error">error</a>)</pre>
+				<p>GetWordVector returns the vector of the provided word.
+
+				
+				
+				
+			
+				
+				<h3 id="Client.InsertDocument">func (*Client) <a href="/src/github.com/spctk/cervell-go/cervell/rag.go?s=323:397#L8">InsertDocument</a>
+					<a class="permalink" href="#Client.InsertDocument">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (cl *<a href="#Client">Client</a>) InsertDocument(ctx <a href="/pkg/context/">context</a>.<a href="/pkg/context/#Context">Context</a>, doc *<a href="#Document">Document</a>) <a href="/pkg/builtin/#error">error</a></pre>
+				<p>InsertDocument inserts a document into the database.
+
+				
+				
+				
+			
+				
+				<h3 id="Client.LLMPrompt">func (*Client) <a href="/src/github.com/spctk/cervell-go/cervell/llm.go?s=600:703#L20">LLMPrompt</a>
+					<a class="permalink" href="#Client.LLMPrompt">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (cl *<a href="#Client">Client</a>) LLMPrompt(ctx <a href="/pkg/context/">context</a>.<a href="/pkg/context/#Context">Context</a>, prompt <a href="/pkg/builtin/#string">string</a>, tools []*<a href="#LLMTool">LLMTool</a>) (*<a href="#LLMResponse">LLMResponse</a>, <a href="/pkg/builtin/#error">error</a>)</pre>
+				<p>LLMPrompt sends a prompt to an LLM.
+
+				
+				
+				
+			
+				
+				<h3 id="Client.UpdateDocument">func (*Client) <a href="/src/github.com/spctk/cervell-go/cervell/rag.go?s=510:584#L13">UpdateDocument</a>
+					<a class="permalink" href="#Client.UpdateDocument">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (cl *<a href="#Client">Client</a>) UpdateDocument(ctx <a href="/pkg/context/">context</a>.<a href="/pkg/context/#Context">Context</a>, doc *<a href="#Document">Document</a>) <a href="/pkg/builtin/#error">error</a></pre>
+				<p>UpdateDocument updates a document in the database.
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="Document">type <a href="/src/github.com/spctk/cervell-go/cervell/rag.go?s=102:265#L1">Document</a>
+				<a class="permalink" href="#Document">&#xb6;</a>
+				
+				
+			</h2>
+			<p>Document is a document for RAG.
+
+			<pre>type Document struct {
+<span id="Document.ID"></span>    ID     <a href="/pkg/github.com/google/uuid/">uuid</a>.<a href="/pkg/github.com/google/uuid/#UUID">UUID</a> `json:&#34;id&#34;`
+<span id="Document.Text"></span>    Text   <a href="/pkg/builtin/#string">string</a>    `json:&#34;text&#34;`
+<span id="Document.Group"></span>    Group  <a href="/pkg/builtin/#string">string</a>    `json:&#34;group&#34;`
+<span id="Document.Vector"></span>    Vector []<a href="/pkg/builtin/#float64">float64</a> `json:&#34;vector,omitempty&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="LLMResponse">type <a href="/src/github.com/spctk/cervell-go/cervell/llm.go?s=498:557#L14">LLMResponse</a>
+				<a class="permalink" href="#LLMResponse">&#xb6;</a>
+				
+				
+			</h2>
+			<p>LLMResponse is a response to an LLM prompt.
+
+			<pre>type LLMResponse struct {
+<span id="LLMResponse.Response"></span>    Response <a href="/pkg/builtin/#string">string</a> `json:&#34;response&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="LLMTool">type <a href="/src/github.com/spctk/cervell-go/cervell/llm.go?s=232:447#L6">LLMTool</a>
+				<a class="permalink" href="#LLMTool">&#xb6;</a>
+				
+				
+			</h2>
+			<p>LLMTool is a tool callable by an LLM.
+
+			<pre>type LLMTool struct {
+<span id="LLMTool.Name"></span>    Name        <a href="/pkg/builtin/#string">string</a>             `json:&#34;name&#34;`
+<span id="LLMTool.Description"></span>    Description <a href="/pkg/builtin/#string">string</a>             `json:&#34;description&#34;`
+<span id="LLMTool.URL"></span>    URL         <a href="/pkg/builtin/#string">string</a>             `json:&#34;url&#34;`
+<span id="LLMTool.Schema"></span>    Schema      *<a href="/pkg/github.com/google/jsonschema-go/jsonschema/">jsonschema</a>.<a href="/pkg/github.com/google/jsonschema-go/jsonschema/#Schema">Schema</a> `json:&#34;schema&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Placemark">type <a href="/src/github.com/spctk/cervell-go/cervell/geocoding.go?s=83:440#L1">Placemark</a>
+				<a class="permalink" href="#Placemark">&#xb6;</a>
+				
+				
+			</h2>
+			<p>Placemark is a placemark for geocoding.
+
+			<pre>type Placemark struct {
+<span id="Placemark.Name"></span>    Name               <a href="/pkg/builtin/#string">string</a>  `json:&#34;name&#34;`
+<span id="Placemark.Thoroughfare"></span>    Thoroughfare       <a href="/pkg/builtin/#string">string</a>  `json:&#34;thoroughfare&#34;`
+<span id="Placemark.Locality"></span>    Locality           <a href="/pkg/builtin/#string">string</a>  `json:&#34;locality&#34;`
+<span id="Placemark.Country"></span>    Country            <a href="/pkg/builtin/#string">string</a>  `json:&#34;country&#34;`
+<span id="Placemark.AdministrativeArea"></span>    AdministrativeArea <a href="/pkg/builtin/#string">string</a>  `json:&#34;administrativeArea&#34;`
+<span id="Placemark.Latitude"></span>    Latitude           <a href="/pkg/builtin/#float64">float64</a> `json:&#34;latitude&#34;`
+<span id="Placemark.Longitude"></span>    Longitude          <a href="/pkg/builtin/#float64">float64</a> `json:&#34;longitude&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+	
+
+	
+
+
+
+
+
+
+
+<div id="footer">
+Build version go1.22.0.<br>
+Except as <a href="https://developers.google.com/site-policies#restrictions">noted</a>,
+the content of this page is licensed under the
+Creative Commons Attribution 3.0 License,
+and code is licensed under a <a href="/LICENSE">BSD license</a>.<br>
+<a href="https://golang.org/doc/tos.html">Terms of Service</a> |
+<a href="https://www.google.com/intl/en/policies/privacy/">Privacy Policy</a>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>
