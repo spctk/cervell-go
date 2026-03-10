@@ -8,8 +8,9 @@ import (
 
 type (
 	llmPrompt struct {
-		Prompt string     `json:"prompt"`
-		Tools  []*LLMTool `json:"tools"`
+		Prompt string             `json:"prompt"`
+		Schema *jsonschema.Schema `json:"schema"`
+		Tools  []*LLMTool         `json:"tools"`
 	}
 
 	// LLMTool is a tool callable by an LLM.
@@ -22,14 +23,16 @@ type (
 
 	// LLMResponse is a response to an LLM prompt.
 	LLMResponse struct {
-		Response string `json:"response"`
+		Text      string         `json:"text"`
+		Structure map[string]any `json:"structure"`
 	}
 )
 
 // LLMPrompt sends a prompt to an LLM.
-func (cl *Client) LLMPrompt(ctx context.Context, prompt string, tools []*LLMTool) (*LLMResponse, error) {
+func (cl *Client) LLMPrompt(ctx context.Context, prompt string, schema *jsonschema.Schema, tools []*LLMTool) (*LLMResponse, error) {
 	r, err := postCall[LLMResponse](ctx, cl, "/llm/prompt", &llmPrompt{
 		Prompt: prompt,
+		Schema: schema,
 		Tools:  tools,
 	})
 	if err != nil {
