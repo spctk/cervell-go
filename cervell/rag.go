@@ -6,7 +6,7 @@ import (
 	"github.com/google/uuid"
 )
 
-// Document ...
+// Document is a document for RAG.
 type Document struct {
 	ID     uuid.UUID `json:"id"`
 	Text   string    `json:"text"`
@@ -14,17 +14,17 @@ type Document struct {
 	Vector []float64 `json:"vector,omitempty"`
 }
 
-// InsertDocument ...
+// InsertDocument inserts a document into the database.
 func (cl *Client) InsertDocument(ctx context.Context, doc *Document) error {
 	return postCallNoResult(ctx, cl, "/documents", doc)
 }
 
-// UpdateDocument ...
+// UpdateDocument updates a document in the database.
 func (cl *Client) UpdateDocument(ctx context.Context, doc *Document) error {
 	return patchCallNoResult(ctx, cl, "/documents", doc)
 }
 
-// FindDocuments ...
+// FindDocuments finds similar documents in the database.
 func (cl *Client) FindDocuments(ctx context.Context, group, text string, limit int) ([]*Document, error) {
 	r, err := postCall[struct {
 		Documents []*Document `json:"documents"`

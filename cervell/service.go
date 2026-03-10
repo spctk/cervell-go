@@ -1,5 +1,4 @@
-// AAA is a...
-
+// Package cervell provides an API to a number of AI functions.
 package cervell
 
 const (

@@ -8,7 +8,7 @@ import (
 	"net/http"
 )
 
-// Client ...
+// Client is a client to the API encapsulating an API key.
 type Client struct {
 	APIKey     string
 	httpClient http.Client
