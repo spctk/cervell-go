@@ -3,13 +3,13 @@ package cervell
 import (
 	"context"
 
-	"github.com/google/jsonschema-go/jsonschema"
+	"github.com/phomola/jsonschema-go/jsonschema"
 )
 
 type (
 	llmPrompt struct {
 		Prompt string             `json:"prompt"`
-		Schema *jsonschema.Schema `json:"schema"`
+		Schema *jsonschema.Schema `json:"schema,omitempty"`
 		Tools  []*LLMTool         `json:"tools"`
 	}
 
