@@ -3,7 +3,7 @@ package cervell
 import (
 	"bytes"
 	"context"
-	"encoding/json"
+	"encoding/json/v2"
 	"fmt"
 	"net/http"
 )
@@ -31,7 +31,7 @@ func getCall[O any](ctx context.Context, cl *Client, path string) (*O, error) {
 		return nil, fmt.Errorf("unexpected status code '%s'", resp.Status)
 	}
 	var out O
-	if err := json.NewDecoder(resp.Body).Decode(&out); err != nil {
+	if err := json.UnmarshalRead(resp.Body, &out); err != nil {
 		return nil, err
 	}
 	return &out, nil
@@ -66,7 +66,7 @@ func bodyCall[O, I any](ctx context.Context, cl *Client, method, path string, in
 		return nil, fmt.Errorf("unexpected status code '%s'", resp.Status)
 	}
 	var out O
-	if err := json.NewDecoder(resp.Body).Decode(&out); err != nil {
+	if err := json.UnmarshalRead(resp.Body, &out); err != nil {
 		return nil, err
 	}
 	return &out, nil
